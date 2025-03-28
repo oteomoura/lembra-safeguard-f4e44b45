@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from "@/components/Navbar";
 import EmailForm from "@/components/EmailForm";
@@ -12,9 +11,18 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="lembras-section pt-8 md:pt-16">
-        <div className="lembras-container">
+      {/* Hero Section with enhanced background */}
+      <section className="lembras-section pt-8 md:pt-16 relative overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-lembras-lavender to-white z-0"></div>
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-lembras-light-purple rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-float"></div>
+          <div className="absolute top-1/3 -left-24 w-72 h-72 bg-lembras-purple rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-lembras-navy rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" style={{ animationDelay: '4s' }}></div>
+          <div className="absolute w-full h-full bg-[url('/pattern.svg')] bg-repeat opacity-5"></div>
+        </div>
+        
+        <div className="lembras-container relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <div className="animate-fade-in">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 hero-text-gradient">
@@ -35,7 +43,7 @@ const Index = () => {
                 <div className="absolute -top-10 -left-10 w-32 h-32 bg-lembras-light-purple rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
                 <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-lembras-purple rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }}></div>
                 
-                <div className="relative lembras-card overflow-hidden">
+                <div className="relative lembras-card overflow-hidden backdrop-blur-sm bg-white/90 border border-white/40 shadow-lg">
                   <div className="flex flex-col items-center justify-center pt-8 pb-12 px-4">
                     {/* Flow illustration */}
                     <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-2xl mb-6">
