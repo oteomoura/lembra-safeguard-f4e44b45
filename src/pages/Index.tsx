@@ -1,10 +1,11 @@
+
 import React from 'react';
 import Navbar from "@/components/Navbar";
 import EmailForm from "@/components/EmailForm";
 import ComparisonTable from "@/components/ComparisonTable";
 import HowItWorks from "@/components/HowItWorks";
 import Footer from "@/components/Footer";
-import { Heart, BookOpen, Smartphone, CloudUpload, Image, Check } from 'lucide-react';
+import { Heart, BookOpen, Smartphone, CloudUpload, Check } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -44,82 +45,75 @@ const Index = () => {
                 <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-lembras-purple rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style={{ animationDelay: '2s' }}></div>
                 
                 <div className="relative lembras-card overflow-hidden backdrop-blur-sm bg-white/90 border border-white/40 shadow-lg">
-                  <div className="flex flex-col items-center justify-center pt-8 pb-12 px-4">
-                    {/* Flow illustration */}
-                    <div className="flex flex-col md:flex-row items-center justify-between w-full max-w-2xl mb-6">
-                      {/* Step 1: Phone with heart */}
-                      <div className="flex flex-col items-center mb-6 md:mb-0">
-                        <div className="bg-lembras-lavender p-4 rounded-full mb-3">
-                          <Smartphone className="h-10 w-10 text-lembras-navy" />
+                  <div className="flex flex-col items-center justify-center p-4 md:p-8">
+                    {/* App visualization mockup */}
+                    <div className="flex flex-col md:flex-row items-center justify-between w-full gap-6 md:gap-12">
+                      {/* Phone mockup */}
+                      <div className="relative w-48 h-96 bg-lembras-navy rounded-3xl p-3 shadow-lg">
+                        {/* Phone screen */}
+                        <div className="bg-white h-full w-full rounded-2xl overflow-hidden flex flex-col">
+                          {/* Phone status bar */}
+                          <div className="h-6 bg-lembras-lavender flex items-center justify-between px-4">
+                            <div className="text-xs font-medium text-lembras-navy">9:41</div>
+                            <div className="flex space-x-1">
+                              <div className="w-3 h-3 rounded-full bg-lembras-navy"></div>
+                              <div className="w-3 h-3 rounded-full bg-lembras-navy"></div>
+                              <div className="w-3 h-3 rounded-full bg-lembras-navy"></div>
+                            </div>
+                          </div>
+                          
+                          {/* Photo gallery mockup */}
+                          <div className="flex-1 p-2 grid grid-cols-2 gap-2 overflow-y-auto">
+                            {[...Array(10)].map((_, i) => (
+                              <div key={i} className="relative bg-lembras-lavender aspect-square rounded-lg shadow-sm overflow-hidden">
+                                <div className={`absolute inset-0 bg-gradient-to-br ${i % 3 === 0 ? 'from-pink-200 to-purple-300' : i % 3 === 1 ? 'from-blue-200 to-green-200' : 'from-yellow-200 to-red-200'}`}></div>
+                                {i % 3 === 0 && (
+                                  <Heart className="absolute top-1 right-1 h-4 w-4 text-lembras-purple fill-lembras-purple" />
+                                )}
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                        <p className="text-sm text-gray-600">Favorite no iPhone</p>
+                        
+                        {/* Phone home button */}
+                        <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-12 h-1 bg-white/60 rounded-full"></div>
                       </div>
                       
-                      {/* Arrow */}
-                      <div className="hidden md:block">
-                        <div className="w-16 h-0.5 bg-lembras-purple relative">
-                          <div className="absolute -right-1 -top-1.5 border-t-[6px] border-r-[6px] border-b-[6px] border-t-transparent border-r-lembras-purple border-b-transparent"></div>
+                      {/* Process arrows */}
+                      <div className="flex md:flex-col items-center justify-center">
+                        <div className="hidden md:flex h-24 items-center justify-center">
+                          <div className="w-12 h-12 rounded-full bg-lembras-light-purple flex items-center justify-center shadow-md">
+                            <CloudUpload className="h-6 w-6 text-lembras-purple" />
+                          </div>
                         </div>
-                      </div>
-                      <div className="block md:hidden mb-3">
-                        <div className="h-6 w-0.5 bg-lembras-purple relative">
-                          <div className="absolute -bottom-1 -left-1.5 border-l-[6px] border-b-[6px] border-r-[6px] border-l-transparent border-b-lembras-purple border-r-transparent"></div>
-                        </div>
-                      </div>
-                      
-                      {/* Step 2: Cloud upload */}
-                      <div className="flex flex-col items-center mb-6 md:mb-0">
-                        <div className="bg-lembras-lavender p-4 rounded-full mb-3">
-                          <CloudUpload className="h-10 w-10 text-lembras-purple" />
-                        </div>
-                        <p className="text-sm text-gray-600">Backup automático</p>
-                      </div>
-                      
-                      {/* Arrow */}
-                      <div className="hidden md:block">
-                        <div className="w-16 h-0.5 bg-lembras-purple relative">
-                          <div className="absolute -right-1 -top-1.5 border-t-[6px] border-r-[6px] border-b-[6px] border-t-transparent border-r-lembras-purple border-b-transparent"></div>
-                        </div>
-                      </div>
-                      <div className="block md:hidden mb-3">
-                        <div className="h-6 w-0.5 bg-lembras-purple relative">
-                          <div className="absolute -bottom-1 -left-1.5 border-l-[6px] border-b-[6px] border-r-[6px] border-l-transparent border-b-lembras-purple border-r-transparent"></div>
+                        <div className="block md:hidden">
+                          <div className="flex items-center justify-center w-12 h-12 rounded-full bg-lembras-light-purple shadow-md my-4">
+                            <CloudUpload className="h-6 w-6 text-lembras-purple" />
+                          </div>
                         </div>
                       </div>
                       
-                      {/* Step 3: Permanent storage */}
-                      <div className="flex flex-col items-center">
-                        <div className="bg-lembras-lavender p-4 rounded-full mb-3">
-                          <Check className="h-10 w-10 text-lembras-navy" />
+                      {/* Cloud storage visualization */}
+                      <div className="bg-gradient-to-br from-lembras-light-purple to-white p-4 rounded-xl shadow-lg w-48 flex flex-col">
+                        <div className="flex items-center space-x-2 mb-4">
+                          <div className="h-8 w-8 rounded-full bg-lembras-purple flex items-center justify-center">
+                            <Check className="h-4 w-4 text-white" />
+                          </div>
+                          <h4 className="text-lembras-navy text-sm font-bold">Lembras Backup</h4>
                         </div>
-                        <p className="text-sm text-gray-600">Armazenamento seguro</p>
-                      </div>
-                    </div>
-                    
-                    {/* Photo examples */}
-                    <div className="grid grid-cols-4 gap-4">
-                      <div className="bg-lembras-lavender p-3 rounded-lg transform rotate-2 shadow-sm">
-                        <div className="bg-lembras-light-purple h-24 w-24 md:h-32 md:w-32 rounded-md flex items-center justify-center relative">
-                          <Image className="h-10 w-10 text-lembras-purple opacity-40" />
-                          <Heart className="h-6 w-6 text-lembras-purple absolute top-2 right-2" />
+                        
+                        {/* Photo grid of backed up images */}
+                        <div className="grid grid-cols-2 gap-2">
+                          {[...Array(4)].map((_, i) => (
+                            <div key={i} className="relative aspect-square rounded-lg overflow-hidden shadow-sm bg-white p-1">
+                              <div className={`absolute inset-0 m-1 rounded-md bg-gradient-to-br ${i % 3 === 0 ? 'from-pink-200 to-purple-300' : i % 3 === 1 ? 'from-blue-200 to-green-200' : 'from-yellow-200 to-red-200'}`}></div>
+                              <Heart className="absolute top-2 right-2 h-3 w-3 text-lembras-purple fill-lembras-purple" />
+                            </div>
+                          ))}
                         </div>
-                      </div>
-                      <div className="bg-lembras-lavender p-3 rounded-lg transform -rotate-3 shadow-sm">
-                        <div className="bg-white h-24 w-24 md:h-32 md:w-32 rounded-md flex items-center justify-center relative">
-                          <Image className="h-10 w-10 text-lembras-light-purple opacity-40" />
-                          <Heart className="h-6 w-6 text-lembras-purple absolute top-2 right-2" />
-                        </div>
-                      </div>
-                      <div className="bg-lembras-lavender p-3 rounded-lg transform rotate-1 shadow-sm">
-                        <div className="bg-white h-24 w-24 md:h-32 md:w-32 rounded-md flex items-center justify-center relative">
-                          <Image className="h-10 w-10 text-lembras-light-purple opacity-40" />
-                          <Heart className="h-6 w-6 text-lembras-purple absolute top-2 right-2" />
-                        </div>
-                      </div>
-                      <div className="bg-lembras-lavender p-3 rounded-lg transform -rotate-2 shadow-sm">
-                        <div className="bg-white h-24 w-24 md:h-32 md:w-32 rounded-md flex items-center justify-center relative">
-                          <Image className="h-10 w-10 text-lembras-light-purple opacity-40" />
-                          <Heart className="h-6 w-6 text-lembras-purple absolute top-2 right-2" />
+                        
+                        <div className="mt-3 p-2 bg-white rounded-lg text-xs text-center text-lembras-navy font-medium">
+                          Favoritos salvos para sempre
                         </div>
                       </div>
                     </div>
