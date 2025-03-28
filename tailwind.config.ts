@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'outfit': ['Outfit', 'sans-serif'],
+				'playfair': ['"Playfair Display"', 'serif'],
+				'sans': ['Outfit', 'ui-sans-serif', 'system-ui'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -117,9 +121,6 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
 				'float': 'float 5s ease-in-out infinite'
-			},
-			fontFamily: {
-				'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
 			},
 			boxShadow: {
 				'soft': '0 8px 30px rgba(155, 135, 245, 0.15)',
